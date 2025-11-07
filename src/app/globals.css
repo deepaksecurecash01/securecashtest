@@ -1,26 +1,79 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ✅ Define your design tokens */
+@theme {
+  /* ----- Breakpoints ----- */
+  --breakpoint-320px: 320px;
+  --breakpoint-360px: 360px;
+  --breakpoint-414px: 414px;
+  --breakpoint-480px: 480px;
+  --breakpoint-600px: 600px;
+  --breakpoint-720px: 720px;
+  --breakpoint-768px: 768px;
+  --breakpoint-800px: 800px;
+  --breakpoint-992px: 992px;
+  --breakpoint-1024px: 1024px;
+  --breakpoint-1070px: 1070px;
+  --breakpoint-1100px: 1100px;
+  --breakpoint-1200px: 1200px;
+  --breakpoint-1280px: 1280px;
+  --breakpoint-1366px: 1366px;
+  --breakpoint-1440px: 1440px;
+  --breakpoint-1600px: 1600px;
+  --breakpoint-1920px: 1920px;
+
+  /* ----- Fonts ----- */
+  --font-montserrat: "Montserrat", system-ui, sans-serif;
+  --font-times: "Times New Roman", Times, serif;
+  --font-prata: var(--font-prata), Georgia, serif;
+  --font-prata-regular: "Prata Regular", serif;
+
+  /* ----- Colors ----- */
+  --color-primary: #c7a652;
+  --color-link: #957433;
+  --color-light-border: #E9E9E9;
+  --color-active-text: #C5A44B;
+  --color-dark-border: #636363;
+  --color-primary-text: #333333;
+
+  /* ----- Background images ----- */
+  --bg-quote-icon: url("/images/quote.png");
+  --bg-quote-icon-white: url("/images/quote-white.png");
+  --bg-content-bg: url("/images/main-background.webp");
+  --bg-banner-mid-bg: url("/images/banner/home-statistics.jpg");
+  --bg-banner-mid-mobile-bg: url("/images/banner/home-statistics-mobile.jpg");
+  --bg-main-content-bg: url("/images/banner/mainbg.webp");
+  --bg-team-bg: url("/images/team.webp");
+  --bg-brown-overlay: url("/images/brown-overlay.png");
+  --bg-quote-header: url("/images/bg-quote-header-left.png"), url("/images/bg-quote-header-right.png");
+  --bg-quote-header-right: url("/images/bg-quote-header-right.png");
+  --bg-quote-header-left: url("/images/bg-quote-header-left.png");
+  --bg-contact-bg: url("/images/mainbg-contact.jpg");
+
+  /* ----- Background positions ----- */
+  --background-position-quote-header: left center, right center;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ✅ Keyframes (Tailwind v4 way) */
+@keyframes fade {
+  0% {
+    filter: brightness(0);
+    opacity: 0;
+  }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  50% {
+    filter: brightness(0.5);
+    opacity: 0.7;
+  }
+
+  100% {
+    filter: brightness(1);
+    opacity: 1;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* ✅ Custom utilities (for your animation) */
+@utility animate-fade {
+  animation: fade 1.5s ease-in-out;
 }
+
